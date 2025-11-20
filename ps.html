@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>PROMIS v2.0 – Satisfacción con la vida sexual</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      line-height: 1.5;
+      background: #f7f7f7;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .card {
+      background: #ffffff;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .question {
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid #eee;
+    }
+    .question:last-of-type {
+      border-bottom: none;
+    }
+    .question p {
+      margin: 0 0 0.5rem 0;
+      font-weight: 600;
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.5rem;
+    }
+    label {
+      font-weight: 400;
+      cursor: pointer;
+    }
+    .small-muted {
+      font-size: 0.85rem;
+      color: #666;
+    }
+    button {
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    #submitBtn {
+      background: #2563eb;
+      color: white;
+    }
+    #submitBtn:hover {
+      opacity: 0.9;
+    }
+    #copyBtn {
+      background: #e5e7eb;
+      margin-top: 0.5rem;
+    }
+    #resultsCard {
+      display: none;
+    }
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>PROMIS v2.0</h1>
+  <h2>Satisfacción con la vida sexual (versión española)</h2>
+
+  <div class="card">
+    <p class="small-muted">
+      Responda a cada pregunta marcando una opción. Este cuestionario es anónimo
+      salvo que su profesional sanitario le indique lo contrario.
+    </p>
+  </div>
+
+  <form id="promis-form" class="card">
+    <!-- SFSAT101 -->
+    <div class="question">
+      <p>En los últimos 30 días, ¿hasta qué punto ha estado satisfecho/a con su vida sexual? (SFSAT101)</p>
+      <div class="options">
+        <label><input type="radio" name="SFSAT101" value="1" required> 1 – Nada</label>
+        <label><input type="radio" name="SFSAT101" value="2"> 2 – Un poco</label>
+        <label><input type="radio" name="SFSAT101" value="3"> 3 – Algo</label>
+        <label><input type="radio" name="SFSAT101" value="4"> 4 – Bastante</label>
+        <label><input type="radio" name="SFSAT101" value="5"> 5 – Mucho</label>
+      </div>
+    </div>
+
+    <!-- SFSAT102r -->
+    <div class="question">
+      <p>En los últimos 30 días, ¿cuánto placer le ha dado su vida sexual? (SFSAT102r)</p>
+      <div class="options">
+        <label><input type="radio" name="SFSAT102r" value="1" required> 1 – Nada</label>
+        <label><input type="radio" name="SFSAT102r" value="2"> 2 – Un poco</label>
+        <label><input type="radio" name="SFSAT102r" value="3"> 3 – Algo</label>
+        <label><input type="radio" name="SFSAT102r" value="4"> 4 – Bastante</label>
+        <label><input type="radio" name="SFSAT102r" value="5"> 5 – Mucho</label>
+      </div>
+    </div>
+
+    <!-- SFSAT103 -->
+    <div class="question">
+      <p>En los últimos 30 días, ¿con qué frecuencia ha pensado que su vida sexual es maravillosa? (SFSAT103)</p>
+      <div class="options">
+        <label><input type="radio" name="SFSAT103" value="1" required> 1 – Nunca</label>
+        <label><input type="radio" name="SFSAT103" value="2"> 2 – Rara vez</label>
+        <label><input type="radio" name="SFSAT103" value="3"> 3 – Algunas veces</label>
+        <label><input type="radio" name="SFSAT103" value="4"> 4 – A menudo</label>
+        <label><input type="radio" name="SFSAT103" value="5"> 5 – Siempre</label>
+      </div>
+    </div>
+
+    <!-- SFSAT201 -->
+    <div class="question">
+      <p>En los últimos 30 días, ¿hasta qué punto ha estado satisfecho/a con sus relaciones de tipo sexual? (SFSAT201)</p>
+      <div class="options">
+        <label><input type="radio" name="SFSAT201" value="0" required> 0 – No he tenido una relación de tipo sexual en los últimos 30 días</label>
+        <label><input type="radio" name="SFSAT201" value="1"> 1 – Nada</label>
+        <label><input type="radio" name="SFSAT201" value="2"> 2 – Un poco</label>
+        <label><input type="radio" name="SFSAT201" value="3"> 3 – Algo</label>
+        <label><input type="radio" name="SFSAT201" value="4"> 4 – Bastante</label>
+        <label><input type="radio" name="SFSAT201" value="5"> 5 – Mucho</label>
+      </div>
+    </div>
+
+    <!-- SFSAT105r -->
+    <div class="question">
+      <p>En los últimos 30 días, cuando ha tenido actividad sexual, ¿cuánto la ha disfrutado? (SFSAT105r)</p>
+      <div class="options">
+        <label><input type="radio" name="SFSAT105r" value="1" required> 1 – Nada</label>
+        <label><input type="radio" name="SFSAT105r" value="2"> 2 – Un poco</label>
+        <label><input type="radio" name="SFSAT105r" value="3"> 3 – Algo</label>
+        <label><input type="radio" name="SFSAT105r" value="4"> 4 – Mucho</label>
+        <label><input type="radio" name="SFSAT105r" value="5"> 5 – Muchísimo</label>
+      </div>
+    </div>
+
+    <p class="small-muted">
+      Nota: las puntuaciones numéricas son para uso del profesional sanitario.
+    </p>
+
+    <button id="submitBtn" type="submit">Enviar cuestionario</button>
+  </form>
+
+  <div id="resultsCard" class="card">
+    <h3>Resumen de respuestas</h3>
+    <p class="small-muted">
+      Estas son las respuestas registradas. Su profesional puede utilizar los valores
+      numéricos para el cálculo de las puntuaciones PROMIS según los procedimientos oficiales.
+    </p>
+    <textarea id="resultsText" readonly></textarea>
+    <button id="copyBtn" type="button">Copiar resultados</button>
+  </div>
+
+  <script>
+    const form = document.getElementById('promis-form');
+    const resultsCard = document.getElementById('resultsCard');
+    const resultsText = document.getElementById('resultsText');
+    const copyBtn = document.getElementById('copyBtn');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const entries = Object.fromEntries(formData.entries());
+
+      // Construimos un texto legible para historia clínica o volcado manual
+      const lines = [];
+      lines.push("PROMIS v2.0 – Satisfacción con la vida sexual (versión española)");
+      lines.push("Fecha: " + new Date().toISOString().slice(0, 10));
+      lines.push("");
+      lines.push("Respuestas (valor numérico):");
+      lines.push("SFSAT101 – Satisfacción con la vida sexual: " + (entries.SFSAT101 || "no respondido"));
+      lines.push("SFSAT102r – Placer con la vida sexual: " + (entries.SFSAT102r || "no respondido"));
+      lines.push("SFSAT103 – Vida sexual maravillosa (frecuencia): " + (entries.SFSAT103 || "no respondido"));
+      lines.push("SFSAT201 – Satisfacción con relaciones de tipo sexual: " + (entries.SFSAT201 || "no respondido"));
+      lines.push("SFSAT105r – Disfrute de la actividad sexual: " + (entries.SFSAT105r || "no respondido"));
+      lines.push("");
+      lines.push("Nota: los valores deben transformarse a puntuaciones T PROMIS siguiendo las tablas/algoritmos oficiales.");
+
+      resultsText.value = lines.join("\n");
+      resultsCard.style.display = "block";
+
+      // Opcional: aquí podrías enviar los datos a un backend propio/REDCap/etc.
+      // fetch("https://tu-endpoint.clinico/api/promis", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify(entries)
+      // });
+    });
+
+    copyBtn.addEventListener('click', async function () {
+      try {
+        await navigator.clipboard.writeText(resultsText.value);
+        copyBtn.textContent = "Copiado ✔";
+        setTimeout(() => copyBtn.textContent = "Copiar resultados", 1500);
+      } catch (e) {
+        resultsText.select();
+        document.execCommand('copy');
+        copyBtn.textContent = "Copiado ✔";
+        setTimeout(() => copyBtn.textContent = "Copiar resultados", 1500);
+      }
+    });
+  </script>
+</body>
+</html>
